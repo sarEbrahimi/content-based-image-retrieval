@@ -16,6 +16,7 @@ Histogram in opencv:
 Compare histogram in opencv:
 
   cv2.compareHist(H1, H2, method)
+  
   The cv2.compareHist function takes three arguments: 
   H1, which is the first histogram to be compared,
   H2, the second histogram to be compared,
