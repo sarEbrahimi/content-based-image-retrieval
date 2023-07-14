@@ -1,12 +1,12 @@
 # content-based-image-retrieval
 <h1>IT IS NOT COMPLETE AND RAISE AN EXCEPTION</h1>
 
-Goals:
+<h4>Goals:</h4>
   find histogram of images
   compare them with each other
   return the most similar picture
 
-Histogram in opencv:
+<h4>Histogram in opencv:</h4>
   cv.calcHist(images, channels, mask, histSize, ranges[, hist[, accumulate]])
   . images : it is the source image of type uint8 or float32. it should be given in square brackets, ie, "[img]".
   . channels : it is also given in square brackets. It is the index of channel for which we calculate histogram. For example, if input is grayscale image, its value is [0]. For color image, you can pass [0], [1] or [2] to calculate histogram of blue, green or red channel respectively.
@@ -14,7 +14,7 @@ Histogram in opencv:
   . histSize : this represents our BIN count. Need to be given in square brackets. For full scale, we pass [256].
   . ranges : this is our RANGE. Normally, it is [0,256].
 
-Compare histogram in opencv:
+<h4>Compare histogram in opencv:</h4>
 
   cv2.compareHist(H1, H2, method)
   
