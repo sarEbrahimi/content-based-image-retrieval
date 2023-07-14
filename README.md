@@ -1,4 +1,5 @@
 # content-based-image-retrieval
+IT IS NOT COMPLETE AND RAISE AN EXCEPTION
 
 Goals:
   find histogram of images
