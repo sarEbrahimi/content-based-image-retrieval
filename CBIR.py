@@ -13,23 +13,24 @@ att = []
 for file in files:
     ax = cv2.imread(file)
     att.append(cv2.cvtColor(ax,cv2.COLOR_BGR2RGB))
+print(f'we have {len(att)} pictures')
 
-# we calculated the hist for base ima
+# we calculated the hist for base img
 img = cv2.imread('60.png')
 base_hist = findHist.findhist(img)
+base_hist = cv2.compareHist(base_hist, base_hist, method=cv2.HISTCMP_CORREL)
 
 att_hist = []
 # for every picure calculate the hist
-for i in range( len(att) ):
-    image = cv2.imread(i)
+for image in att:
     histogram = findHist.findhist(image)
+    histogram = cv2.compareHist(base_hist, histogram, method=cv2.HISTCMP_CORREL)
+    print(histogram)
     att_hist.append(histogram)
 
 flag = 0
-for i in range( len(att) ):
+for i in att_hist:
     # now compare them with each other and store the largest amount
-    compared = cv2.compareHist(base_hist,att_hist[i], cv2.HISTCMP_CORREL)
-    if compared <= 2147483647:
+    compared = cv2.compareHist(base_hist, i, method=cv2.HISTCMP_CORREL)
+    if compared >= -2147483647:
         flag = i
-    else:
-        continue
