@@ -17,20 +17,26 @@ print(f'we have {len(att)} pictures')
 
 # we calculated the hist for base img
 img = cv2.imread('60.png')
-base_hist = findHist.findhist(img)
-base_hist = cv2.compareHist(base_hist, base_hist, method=cv2.HISTCMP_CORREL)
-
+base = findHist.findhist(img)
+base_hist = cv2.compareHist(base, base, method=cv2.HISTCMP_CORREL)
+print(base_hist)
 att_hist = []
 # for every picure calculate the hist
 for image in att:
     histogram = findHist.findhist(image)
-    histogram = cv2.compareHist(base_hist, histogram, method=cv2.HISTCMP_CORREL)
+    print('ok1')
+    histogram = cv2.compareHist(base, histogram, method=cv2.HISTCMP_CORREL)
+    print('ok2')
     print(histogram)
     att_hist.append(histogram)
 
-flag = 0
+flag = -2147483647
+counter = 0
 for i in att_hist:
     # now compare them with each other and store the largest amount
-    compared = cv2.compareHist(base_hist, i, method=cv2.HISTCMP_CORREL)
-    if compared >= -2147483647:
+    if i >= flag:
         flag = i
+        c = counter
+    counter += 1
+
+print('the picture has the most similarity is: ',c)
