@@ -29,7 +29,7 @@
   . cv2.HISTCMP_BHATTACHARYYA: Bhattacharyya distance, used to measure the “overlap” between the two histograms.
 
 <h4>What did we do?</h4>
-  in #findHist implemented a function to capture the color histogram
+  in #findHist implemented a function to capture the color histogram so in #CBIR we just get pictures and compare histograms
 
 
 
