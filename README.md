@@ -1,5 +1,4 @@
 # content-based-image-retrieval
-<h1>IT IS NOT COMPLETE AND RAISE AN EXCEPTION</h1>
 
 <h4>Goals:</h4>
   find histogram of images
